@@ -353,7 +353,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	
 	    if (cb) {
-	      promise.then(cb);
+	      promise = promise.then(cb);
 	    }
 	
 	    return promise;
