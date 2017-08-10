@@ -143,9 +143,13 @@ class Request {
   respondWith(res) {
     let response = new Response(this, res)
     settle(this.resolve, this.reject, response)
-    return new Promise(function (resolve) {
+    return new Promise(function (resolve, reject) {
       moxios.wait(function () {
-        resolve(response)
+        if(response.status < 400) {
+          resolve(response)
+        } else {
+          reject(response)
+        }
       })
     })
   }

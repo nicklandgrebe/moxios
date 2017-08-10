@@ -255,9 +255,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function respondWith(res) {
 	      var response = new Response(this, res);
 	      (0, _settle2.default)(this.resolve, this.reject, response);
-	      return new Promise(function (resolve) {
+	      return new Promise(function (resolve, reject) {
 	        moxios.wait(function () {
-	          resolve(response);
+	          if (response.status < 400) {
+	            resolve(response);
+	          } else {
+	            reject(response);
+	          }
 	        });
 	      });
 	    }

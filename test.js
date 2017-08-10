@@ -72,7 +72,7 @@ describe('moxios', function () {
         let request = moxios.requests.mostRecent()
         request.respondWith({
           status: 404
-        }).then(function () {
+        }).then(null, function () {
           equal(onFulfilled.called, false)
           equal(onRejected.called, true)
           done()
