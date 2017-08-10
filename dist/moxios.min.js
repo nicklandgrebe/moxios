@@ -218,9 +218,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    this.headers = config.headers;
 	    this.url = (0, _buildURL2.default)(config.url, config.params, config.paramsSerializer);
+	    this.method = config.method;
 	    this.timeout = config.timeout;
 	    this.withCredentials = config.withCredentials || false;
 	    this.responseType = config.responseType;
+	
+	    this.data = config.data;
 	
 	    // Set auth header
 	    if (config.auth) {

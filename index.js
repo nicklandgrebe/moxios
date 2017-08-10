@@ -108,9 +108,12 @@ class Request {
 
     this.headers = config.headers
     this.url = buildURL(config.url, config.params, config.paramsSerializer)
+    this.method = config.method
     this.timeout = config.timeout
     this.withCredentials = config.withCredentials || false
     this.responseType = config.responseType
+
+    this.data = config.data
 
     // Set auth header
     if (config.auth) {
